@@ -38,6 +38,11 @@ class Sj4webOpcacheMonitor extends Module
         return parent::uninstall();
     }
 
+    public function hookDisplayBackOfficeHeader()
+    {
+        return '';
+    }
+
     public function getContent()
     {
         Tools::redirectAdmin($this->context->link->getAdminLink('AdminOpcacheStats'));
