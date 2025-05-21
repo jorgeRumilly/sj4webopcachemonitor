@@ -47,4 +47,8 @@ class Sj4webOpcacheMonitor extends Module
     {
         Tools::redirectAdmin($this->context->link->getAdminLink('AdminOpcacheStats'));
     }
+    public function isUsingNewTranslationSystem()
+    {
+        return true;
+    }
 }

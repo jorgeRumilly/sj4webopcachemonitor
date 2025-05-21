@@ -7,7 +7,7 @@ class AdminOpcacheStatsController extends ModuleAdminController
         parent::__construct();
 
         $this->bootstrap = true;
-        $this->meta_title = $this->l('Statut OpCache');
+        $this->meta_title = $this->trans('Statut OpCache', [], 'Modules.Sj4webopcachemonitor.Admin');
     }
 
     public function initContent()
@@ -15,16 +15,16 @@ class AdminOpcacheStatsController extends ModuleAdminController
         parent::initContent();
 
         if (!function_exists('opcache_get_status') || !function_exists('opcache_get_configuration')) {
-            $this->errors[] = $this->l('OpCache n\'est pas activé sur ce serveur.');
+            $this->errors[] = $this->trans('OpCache n\'est pas activé sur ce serveur.', [], 'Modules.Sj4webopcachemonitor.Admin');
             return;
         }
 
         // Si on a cliqué sur "Vider le cache"
         if (Tools::isSubmit('reset_opcache') && function_exists('opcache_reset')) {
             if (opcache_reset()) {
-                $this->confirmations[] = $this->l('Le cache OpCache a été vidé avec succès.');
+                $this->confirmations[] = $this->trans('Le cache OpCache a été vidé avec succès.', [], 'Modules.Sj4webopcachemonitor.Admin');
             } else {
-                $this->errors[] = $this->l('Impossible de vider le cache OpCache.');
+                $this->errors[] = $this->trans('Impossible de vider le cache OpCache.', [], 'Modules.Sj4webopcachemonitor.Admin');
             }
         }
 
@@ -37,6 +37,6 @@ class AdminOpcacheStatsController extends ModuleAdminController
             'reset_link' => $this->context->link->getAdminLink('AdminOpcacheStats', true) . '&reset_opcache=1',
         ]);
 
-        $this->setTemplate('module:sj4webopcachemonitor/views/templates/admin/opcache_stats.tpl');
+        $this->setTemplate('opcache_stats.tpl');
     }
 }
