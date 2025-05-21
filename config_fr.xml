@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>sj4webopcachemonitor</name>
+    <displayName><![CDATA[SJ4WEB - OpCache Monitor]]></displayName>
+    <version><![CDATA[1.0.0]]></version>
+    <description><![CDATA[Affiche l'état de l'OpCache PHP dans le BO.]]></description>
+    <author><![CDATA[SJ4WEB.FR]]></author>
+    <tab><![CDATA[administration]]></tab>
+    <is_configurable>1</is_configurable>
+    <need_instance>0</need_instance>
+</module>
