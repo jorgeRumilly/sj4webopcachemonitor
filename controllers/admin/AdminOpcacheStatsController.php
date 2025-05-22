@@ -52,11 +52,6 @@ class AdminOpcacheStatsController extends ModuleAdminController
                 'expected' => 1,
                 'compare' => '==',
             ],
-            'opcache_enable' => [
-                'comment' => 'Active le cache OpCode',
-                'expected' => 1,
-                'compare' => '==',
-            ],
             'opcache.enable_cli' => [
                 'comment' => 'Active OpCache pour le CLI (souvent désactivé)',
                 'expected' => 0,
@@ -141,6 +136,19 @@ class AdminOpcacheStatsController extends ModuleAdminController
             'opcache.jit_max_root_traces' => ['comment' => 'Traces principales max'],
             'opcache.jit_max_side_traces' => ['comment' => 'Traces secondaires max'],
             'opcache.jit_prof_threshold' => ['comment' => 'Seuil de déclenchement JIT'],
+
+            // Clés du statut
+            'opcache_enabled' => ['comment' => 'OpCache activé sur ce serveur','expected' => 1,'compare' => '=='],
+            'cache_full' => ['comment' => 'La mémoire du cache est pleine'],
+            'restart_pending' => ['comment' => 'Un redémarrage OpCache est requis'],
+            'restart_in_progress' => ['comment' => 'Redémarrage OpCache en cours'],
+            'memory_usage' => ['comment' => 'Utilisation de la mémoire OpCache'],
+            'interned_strings_usage' => ['comment' => 'Utilisation mémoire des chaînes internes'],
+            'opcache_statistics' => ['comment' => 'Statistiques globales du cache OpCache'],
+            'opcache_statistics_start_time' => ['comment' => 'Date d’activation du cache'],
+            'opcache_statistics_last_restart' => ['comment' => 'Dernier redémarrage du cache'],
+            'scripts' => ['comment' => 'Nombre de scripts actuellement en cache'],
+            'jit' => ['comment' => 'Statut et configuration du moteur JIT'],
         ];
     }
 
